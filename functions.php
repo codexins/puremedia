@@ -49,6 +49,11 @@ require get_template_directory() . '/lib/plugins/required-plugins.php';
  */
 require get_template_directory() . '/lib/custompost.php';
 
+/**
+ * Adding Custom Shortcode
+ */
+require get_template_directory() . '/lib/codexin-kc-shortcodes/init.php';
+
 
 
 if ( ! isset( $content_width ) ) {
