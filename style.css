@@ -2084,3 +2084,7 @@ hr {
 .hero-content .flex-control-nav {
     bottom: 50px;
 }
+
+#hero .columns {
+  padding: 0;
+}
