@@ -905,7 +905,9 @@ ul#nav li a:hover {
 ul#nav li a:active {
   background-color: transparent !important;
 }
-ul#nav li.current-menu-item a {
+ 
+/*ul#nav li.current-menu-item a ,*/
+ul#nav li.current a {
   background: #f26522;
   color: white;
 }

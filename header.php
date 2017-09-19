@@ -51,8 +51,7 @@
 <?php wp_head(); ?>
 
 </head>
-
-<body <?php body_class('homepage'); ?>>
+<body <?php if( is_front_page()) : body_class('homepage'); else : body_class(); endif; ?>>
 
 <?php global $codexin; ?>
 
