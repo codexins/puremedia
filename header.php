@@ -117,7 +117,9 @@
    						<div class="flex-caption">
    							<h1><?php the_excerpt(); ?> </h1>	
    							<p>
-                           <a class="button stroke smoothscroll" href="#about">
+                        <?php $rm_url = rwmb_meta( 'codexin_read_more_link', 'type=text' ); 
+                              $getUrl = ( !empty($rm_url) ) ? $rm_url : ''; ?>
+                           <a class="button stroke smoothscroll" href="<?php echo esc_url( $getUrl ); ?>">
                            <?php 
                               $btn_text = rwmb_meta( 'codexin_button_text', 'type=text' ); 
                               $text = ( !empty($btn_text) ) ? $btn_text : '';

@@ -192,8 +192,17 @@ function codexin_register_meta_boxes( $meta_boxes ) {
 
             array(
                 'name'       => __( 'Read More Button', 'codexin' ),
-                'desc'       => 'Enter read More Button Text Here',
+                'desc'       => 'Enter Read More Button Text Here',
                 'id'         => $prefix . 'button_text',
+                'type'       => 'text',
+                'clone'      => false,
+                'size'       => 95
+            ),
+
+            array(
+                'name'       => __( 'Read More Link', 'codexin' ),
+                'desc'       => 'Enter Read More Button Link Here',
+                'id'         => $prefix . 'read_more_link',
                 'type'       => 'text',
                 'clone'      => false,
                 'size'       => 95
