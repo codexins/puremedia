@@ -2,7 +2,7 @@
 
 /*
 	============================================
-		CODEXIN ADDRESS BOX WIDGET CLASS
+		PUREMEDIA ADDRESS BOX WIDGET CLASS
 	============================================
 */
 
