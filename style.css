@@ -1043,6 +1043,8 @@ ul#nav li.current a {
 }
 #sidebar .photostream li a img {
   vertical-align: bottom;
+  width: 100%;
+  height: 100%;
 }
 
 

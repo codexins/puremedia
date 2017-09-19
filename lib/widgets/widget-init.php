@@ -8,6 +8,9 @@
 
  //Load Category Widget..
  include 'puremedia-widgets/puremedia-tag-widget.php';
+
+ //Load Latest Posts Images Widget..
+ include 'puremedia-widgets/puremedia-latest-photo-widget.php';
  
 
  ?>
