@@ -33,7 +33,7 @@
 				<?php if( ! empty( $codexin['pm-copyright'] ) ) : echo $codexin['pm-copyright']; endif; ?> 
 			</p>        
 			<div id="go-top">
-				<a class="smoothscroll" title="Back to Top" href="#hero"><span>Top</span><i class="fa fa-long-arrow-up"></i></a>
+				<a class="smoothscroll" title="Back to Top" href="#main-header"><span>Top</span><i class="fa fa-long-arrow-up"></i></a>
 			</div>
 		</div> <!-- /row -->
    	</footer> <!-- /footer -->

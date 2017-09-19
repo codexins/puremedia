@@ -67,7 +67,7 @@
    <header id="main-header">
    	<div class="row header-inner">
 	      <div class="logo">
-	         <a class="smoothscroll" href="#">
+	         <a class="smoothscroll" href="<?php echo esc_url( home_url( '/' ) ); ?>">
              <?php if( ! empty( $codexin['pm-logo'] ) ) : echo $codexin['pm-logo']; endif; ?>  
             </a>
 	      </div>
