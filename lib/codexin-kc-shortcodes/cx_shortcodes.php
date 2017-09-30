@@ -74,7 +74,7 @@ function pm_section_heading_shortcode(  $atts, $content = null) {
 
 function pm_portfolio_shortcode(  $atts, $content = null) {
 	extract(shortcode_atts(array(
-			'class'		  	=> '',
+			'class'	=> '',
 	), $atts));
 
 	$result = '';

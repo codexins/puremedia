@@ -9,40 +9,36 @@
 
 get_header(); ?>
 
-	<div id="content" class="main-content-wrapper">
-		<div class="container">
-			<div class="row">
-				
-				<div class="col-sm-8 col-md-9">
+	<!-- Content
+ ================================================== -->
+ <section id="content">
+    <div class="row">
+        <div id="main" class="tab-whole eight columns entries">
+             <?php
+				if ( have_posts() ) :
 
-					<div id="primary" class="site-main contact-page">
-						<?php
-						if ( have_posts() ) :
-							
-							while ( have_posts() ) : the_post();
-								get_template_part( 'template-parts/content', 'page' );
+					/* Start the Loop */
+					while ( have_posts() ) : the_post();
 
-							endwhile;
-						endif; ?>
+						get_template_part( 'template-parts/content', 'contact' );
 
-					</div><!-- #primary -->
-				</div> <!-- end of col -->
+					endwhile; ?>
 
-                <div class="col-sm-4 col-md-3">
-					<div id="secondary" class="widget-area" role="complementary">
-						<?php get_sidebar(); ?>
-					</div><!-- #secondary -->
-				</div> <!-- end of col -->
+				<?php else :
 
-			</div> <!-- end of row -->
-		</div> <!-- end of container -->
-	</div> <!-- end of #content -->
+					get_template_part( 'template-parts/content', 'none' );
 
-	<div id="map">
-		<div id="gmap-wrap">
-				<div id="gmap"> 				
-				</div>	 			
-		</div>
-	</div><!--/#map-->
+				endif; ?>
+                            
+        </div> <!-- /main -->  
+
+       <div class="tab-whole four columns end" id="secondary">
+           <aside id="sidebar">
+                <?php get_sidebar(); ?>
+            </aside> <!-- /sidebar -->
+        </div> <!-- /secondary -->
+
+    </div> <!-- /row -->      
+</section> <!-- /content -->
 
 <?php get_footer(); ?>
