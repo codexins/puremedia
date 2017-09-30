@@ -1255,8 +1255,8 @@ hr {
   text-shadow: none;
   color: transparent;
 }
-.pagenav a[rel="next"]:after, 
-.pagenav a[rel="prev"]:before {
+.pagenav .next  a:after, 
+.pagenav .prev a:before {
   float: left;
   text-align: center;
   display: inline-block;
@@ -1273,14 +1273,14 @@ hr {
   -ms-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
-.pagenav a[rel="next"]:after {
+.pagenav .next  a:after {
   content: "\f054";
 }
-.pagenav a[rel="prev"]:before {
+.pagenav  .prev  a:before {
   content: "\f053";
   margin-right: 6px;
 }
-.pagenav a[rel="next"]:hover:after, .pagenav a[rel="prev"]:hover:before {
+.pagenav .next  a:hover:after, .pagenav .prev  a:hover:before {
   color: white;
   background: #f26522;
 }

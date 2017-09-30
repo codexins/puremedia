@@ -36,10 +36,12 @@ get_header(); ?>
 					 ?>
 					 <div class="pagenav group">
 					 <?php if( $prev_link ): ?>
-					 	<span class="prev"><a href="<?php echo wp_link_pages( $prev_link ); ?>" rel="prev"><?php wp_link_pages( $prev_link ); ?></a></span>
+					 	<span class="prev">
+					 	<?php echo $prev_link; ?></span>
 					 <?php endif; ?>
 					 <?php if( $next_link ): ?>	
-					 	<span class="next"><a href="<?php echo wp_link_pages( $next_link ); ?>" rel="next"><?php wp_link_pages( $next_link ); ?></a></span>
+					 	<span class="next">
+					 	<?php echo $next_link; ?></span>
 					 <?php endif; ?>
 					</div> 
 
