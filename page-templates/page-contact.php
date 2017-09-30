@@ -30,7 +30,7 @@ get_header(); ?>
 
                 <div class="col-sm-4 col-md-3">
 					<div id="secondary" class="widget-area" role="complementary">
-						<? get_sidebar(); ?>
+						<?php get_sidebar(); ?>
 					</div><!-- #secondary -->
 				</div> <!-- end of col -->
 

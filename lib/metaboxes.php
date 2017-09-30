@@ -7,13 +7,13 @@ function codexin_register_meta_boxes( $meta_boxes ) {
     //1st meta box
     $meta_boxes[] = array(
         'id'         => 'codexin-team-member',
-        'title'      => __( 'Team Member Information', 'codexin' ),
+        'title'      => __( 'Team Member Information', 'puremedia' ),
         'post_types' => array( 'team' ),
         'context'    => 'normal',
         'priority'   => 'high',
         'fields' => array(
             array(
-                'name'  => __( 'Designation', 'codexin' ),
+                'name'  => __( 'Designation', 'puremedia' ),
                 'desc'  => 'Enter Designation',
                 'id'    => $prefix . 'team_designation',
                 'type'  => 'text',
@@ -22,7 +22,7 @@ function codexin_register_meta_boxes( $meta_boxes ) {
             ),
 
             array(
-                'name'  => __( 'Facebook URL', 'codexin' ),
+                'name'  => __( 'Facebook URL', 'puremedia' ),
                 'desc'  => 'Enter facebook url',
                 'id'    => $prefix . 'team_fb',
                 'type'  => 'text',
@@ -31,7 +31,7 @@ function codexin_register_meta_boxes( $meta_boxes ) {
             ),
 
             array(
-                'name'  => __( 'Twitter URL', 'codexin' ),
+                'name'  => __( 'Twitter URL', 'puremedia' ),
                 'desc'  => 'Enter Twitter URL',
                 'id'    => $prefix . 'team_tr',
                 'type'  => 'text',
@@ -40,7 +40,7 @@ function codexin_register_meta_boxes( $meta_boxes ) {
             ),
 
             array(
-                'name'  => __( 'LinkedIn URL', 'codexin' ),
+                'name'  => __( 'LinkedIn URL', 'puremedia' ),
                 'desc'  => 'Enter LinkedIn URL',
                 'id'    => $prefix . 'team_ld',
                 'type'  => 'text',
@@ -49,7 +49,7 @@ function codexin_register_meta_boxes( $meta_boxes ) {
             ),
 
             array(
-                'name'  => __( 'Google Plus URL', 'codexin' ),
+                'name'  => __( 'Google Plus URL', 'puremedia' ),
                 'desc'  => 'Enter Instagram URL',
                 'id'    => $prefix . 'team_gp',
                 'type'  => 'text',
@@ -58,7 +58,7 @@ function codexin_register_meta_boxes( $meta_boxes ) {
             ),
 
             array(
-                'name'  => __( 'Skype URL', 'codexin' ),
+                'name'  => __( 'Skype URL', 'puremedia' ),
                 'desc'  => 'Enter Instagram URL',
                 'id'    => $prefix . 'team_sk',
                 'type'  => 'text',
@@ -70,47 +70,18 @@ function codexin_register_meta_boxes( $meta_boxes ) {
         )
     );
 
-    $meta_boxes[] = array(
-        'id'         => 'codexin-testimonail-meta',
-        'title'      => __( 'Author Information', 'codexin' ),
-        'post_types' => array( 'testimonial' ),
-        'context'    => 'normal',
-        'priority'   => 'high',
-        'fields' => array(
-
-            array(
-                'name'  => __( 'Name', 'codexin' ),
-                'desc'  => 'Enter Name',
-                'id'    => $prefix . 'author_name',
-                'type'  => 'text',
-                'clone' => false,
-                'size'  => 95
-            ),
-
-            array(
-                'name'  => __( 'Designation', 'codexin' ),
-                'desc'  => 'Enter Designation',
-                'id'    => $prefix . 'author_designation',
-                'type'  => 'text',
-                'clone' => false,
-                'size'  => 95
-            ),
-
-
-        )
-    );
-
-
+    
+    //Integrating portfolio meta info 
     $meta_boxes[] = array(
         'id'         => 'codexin-portfolio-meta',
-        'title'      => __( 'Portfolio Information', 'codexin' ),
+        'title'      => __( 'Portfolio Information', 'puremedia' ),
         'post_types' => array( 'portfolio' ),
         'context'    => 'normal',
         'priority'   => 'high',
         'fields' => array(
 
             array(
-                'name'  => __( 'Client Name', 'codexin' ),
+                'name'  => __( 'Client Name', 'puremedia' ),
                 'desc'  => 'Enter client name',
                 'id'    => $prefix . 'portfolio_client',
                 'type'  => 'text',
@@ -119,7 +90,7 @@ function codexin_register_meta_boxes( $meta_boxes ) {
             ),
 
             array(
-                'name'  => __( 'Project Date', 'codexin' ),
+                'name'  => __( 'Project Date', 'puremedia' ),
                 'desc'  => 'Enter project date. Example: 14-Apr-17',
                 'id'    => $prefix . 'portfolio_date',
                 'type'  => 'text',
@@ -128,7 +99,7 @@ function codexin_register_meta_boxes( $meta_boxes ) {
             ),
 
             array(
-                'name'          => __( 'Project Thumbnail', 'codexin' ),
+                'name'          => __( 'Project Thumbnail', 'puremedia' ),
                 'desc'          => 'Upload Project Images Here ( You may upload multipole images)',
                 'id'            => $prefix . 'portfolio_thumbnail',
                 'type'          => 'image',
@@ -138,16 +109,17 @@ function codexin_register_meta_boxes( $meta_boxes ) {
         )
     );
 
+    //Integrating page BG-Image meta
     $meta_boxes[] = array(
         'id'         => 'codexin-page-background-meta',
-        'title'      => __( 'Page Header Background Image', 'codexin' ),
+        'title'      => __( 'Page Header Background Image', 'puremedia' ),
         'post_types' => array( 'page' ),
         'context'    => 'normal',
         'priority'   => 'high',
         'fields' => array(
 
             array(
-                'name'          => __( 'Background Image', 'codexin' ),
+                'name'          => __( 'Background Image', 'puremedia' ),
                 'desc'          => 'Upload Page Header Background Image',
                 'id'            => $prefix . 'page_background',
                 'type'          => 'image_advanced',
@@ -160,7 +132,7 @@ function codexin_register_meta_boxes( $meta_boxes ) {
 
     $meta_boxes[] = array(
         'id'         => 'codexin-client-logo-meta',
-        'title'      => __( 'Client Information', 'codexin' ),
+        'title'      => __( 'Client Information', 'puremedia' ),
         'post_types' => array( 'clients' ),
         'context'    => 'normal',
         'priority'   => 'high',
@@ -168,7 +140,7 @@ function codexin_register_meta_boxes( $meta_boxes ) {
 
 
             array(
-                'name'  => __( 'Client Site URL', 'codexin' ),
+                'name'  => __( 'Client Site URL', 'puremedia' ),
                 'desc'  => 'Enter client site URL',
                 'id'    => $prefix . 'clients_surl',
                 'type'  => 'text',
@@ -181,17 +153,17 @@ function codexin_register_meta_boxes( $meta_boxes ) {
         )
     );
 
-    //Home Slider
+    //Integrating Home Slider Meta info
     $meta_boxes[] = array(
         'id'         => 'codexin-home-slider-meta',
-        'title'      => __( 'Home Slider Info', 'codexin' ),
+        'title'      => __( 'Home Slider Info', 'puremedia' ),
         'post_types' => array( 'home-slider' ),
         'context'    => 'normal',
         'priority'   => 'high',
         'fields' => array(
 
             array(
-                'name'       => __( 'Read More Button', 'codexin' ),
+                'name'       => __( 'Read More Button', 'puremedia' ),
                 'desc'       => 'Enter Read More Button Text Here',
                 'id'         => $prefix . 'button_text',
                 'type'       => 'text',
@@ -200,7 +172,7 @@ function codexin_register_meta_boxes( $meta_boxes ) {
             ),
 
             array(
-                'name'       => __( 'Read More Link', 'codexin' ),
+                'name'       => __( 'Read More Link', 'puremedia' ),
                 'desc'       => 'Enter Read More Button Link Here',
                 'id'         => $prefix . 'read_more_link',
                 'type'       => 'text',

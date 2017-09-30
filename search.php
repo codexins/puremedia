@@ -34,8 +34,8 @@ get_header(); ?>
 							endwhile; ?>
 
 							<?php 
-								$prev_link = get_previous_posts_link(__('&laquo; Newer Posts'));
-								$next_link = get_next_posts_link(__('Older Posts &raquo;'));
+								$prev_link = get_previous_posts_link(__('&laquo; Newer Posts', 'puremedia'));
+								$next_link = get_next_posts_link(__('Older Posts &raquo;', 'puremedia'));
 
 							 ?>
 							<div class="posts-nav" class="section">

@@ -313,6 +313,10 @@
 	    padding: 15px 15px;
 	}
 
+	.item .item-wrap .portfolio-item-meta {
+		opacity: 1 ;
+	}
+
 } /* 768 */
 
 

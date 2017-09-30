@@ -20,7 +20,7 @@ function cx_get_contact_form() {
 
 	if ( $cf7_list ) {
 
-		$cf7_val[] = __( 'Select Contact Form..', 'codexin' );
+		$cf7_val[] = __( 'Select Contact Form..', 'puremedia' );
 
 		foreach ( $cf7_list as $value ) {
 			$cf7_val[$value->ID] = $value->post_title;
@@ -28,7 +28,7 @@ function cx_get_contact_form() {
 
 	} else {
 
-		$cf7_val[0] = __( 'No contact forms found', 'codexin' );
+		$cf7_val[0] = __( 'No contact forms found', 'puremedia' );
 
 	}
 
@@ -48,46 +48,46 @@ function puremedia_shortcode() {
 			array(
 
 				'pm_section_heading' => array(
-					'name' => __( 'Section Heading', 'codexin' ),
-					'description' => __('Section Heading', 'codexin'),
+					'name' => __( 'Section Heading', 'puremedia' ),
+					'description' => __('Section Heading', 'puremedia'),
 					'icon' => 'et-gift',
 					'category' => 'Puremedia',
 					'params' => array(
 						'General' => array(
 							array(
 								'name' => 'title',
-								'label' => __( 'Enter Title', 'codexin' ),
+								'label' => __( 'Enter Title', 'puremedia' ),
 								'type' => 'text',
 								'admin_label' => false,
 							),
 							array(
 								'name' => 'description',
-								'label' => __( 'Description', 'codexin' ),
+								'label' => __( 'Description', 'puremedia' ),
 								'type' => 'textarea',
-								'description' => esc_html__( 'Enter Your Header Description Here', 'codexin' ),
+								'description' => esc_html__( 'Enter Your Header Description Here', 'puremedia' ),
 								'admin_label' => false,
 							),
 							array(
 								'name'			=> 'class',
-								'label' 		=> __(' Extra Class', 'codexin'),
+								'label' 		=> __(' Extra Class', 'puremedia'),
 								'type'			=> 'text'
 							),
 						), //End General
 						// Style based Params
 						'styling' => array(
  							array(
- 								'name'    		=> 'codexin_css',
+ 								'name'    		=> 'puremedia_css',
  								'type'    		=> 'css',
  								'options' 		=> array(
  									array(
  										"screens" => "any,1199,991,767,479",
 
  										'Title' => array(
- 											array('property' => 'color', 'label' => esc_html__('Color', 'codexin'), 'selector' => '.section-head h1'),
+ 											array('property' => 'color', 'label' => esc_html__('Color', 'puremedia'), 'selector' => '.section-head h1'),
 										),
 
 										'Description' => array(
- 											array('property' => 'color', 'label' => esc_html__('Color', 'codexin'), 'selector' => '.section-head p'),
+ 											array('property' => 'color', 'label' => esc_html__('Color', 'puremedia'), 'selector' => '.section-head p'),
 										),
 
 									), 
@@ -109,14 +109,14 @@ function puremedia_shortcode() {
 
 				// Integrating Portfolio Shortcode with King Composer
 	            'pm_portfolio' => array(
-					'name' => __( 'Portfolio', 'codexin' ),
-					'description' => __('Puremedia Portfolio', 'codexin'),
+					'name' => __( 'Portfolio', 'puremedia' ),
+					'description' => __('Puremedia Portfolio', 'puremedia'),
 					'icon' => 'et-gift',
 					'category' => 'Puremedia',
 					'params' => array(
 						array(
 							'name'			=> 'class',
-							'label' 		=> __(' Extra Class', 'codexin'),
+							'label' 		=> __(' Extra Class', 'puremedia'),
 							'type'			=> 'text'
 						),
 
@@ -126,32 +126,32 @@ function puremedia_shortcode() {
 
 	            // Integrating Service Box Shortcode with King Composer
 	            'pm_services_box' => array(
-					'name' => __( 'Service Box', 'codexin' ),
-					'description' => __('Puremedia Service Box', 'codexin'),
+					'name' => __( 'Service Box', 'puremedia' ),
+					'description' => __('Puremedia Service Box', 'puremedia'),
 					'icon' => 'et-gift',
 					'category' => 'Puremedia',
 					'params' => array(
 						array(
 							'name'			=> 'service_title',
-							'label' 		=> __('Service Title', 'codexin'),
+							'label' 		=> __('Service Title', 'puremedia'),
 							'type'			=> 'text',
-							'description'	=> esc_html__( 'Enter Service Title Here', 'codexin' ),
+							'description'	=> esc_html__( 'Enter Service Title Here', 'puremedia' ),
 						),
 						array(
 							'name'			=> 'service_desc',
-							'label' 		=> __('Service Description', 'codexin'),
+							'label' 		=> __('Service Description', 'puremedia'),
 							'type'			=> 'textarea',
-							'description'	=> esc_html__( 'Enter Service Description Here', 'codexin' ),
+							'description'	=> esc_html__( 'Enter Service Description Here', 'puremedia' ),
 						),
 						array(
 							'name'			=> 'services_icon',
-							'label' 		=> __('Service Icon', 'codexin'),
+							'label' 		=> __('Service Icon', 'puremedia'),
 							'type'			=> 'icon_picker',
-							'description'	=> esc_html__( 'Select Service Icon Here', 'codexin' ),
+							'description'	=> esc_html__( 'Select Service Icon Here', 'puremedia' ),
 						),
 						array(
 							'name'			=> 'class',
-							'label' 		=> __(' Extra Class', 'codexin'),
+							'label' 		=> __(' Extra Class', 'puremedia'),
 							'type'			=> 'text'
 						),
 
@@ -161,37 +161,37 @@ function puremedia_shortcode() {
 
 	            // Integrating About Box Shortcode with King Composer
 	            'pm_about_box' => array(
-					'name' => __( 'About Box', 'codexin' ),
-					'description' => __('Puremedia About Box', 'codexin'),
+					'name' => __( 'About Box', 'puremedia' ),
+					'description' => __('Puremedia About Box', 'puremedia'),
 					'icon' => 'et-gift',
 					'category' => 'Puremedia',
 					'params' => array(
 						array(
 							'name'			=> 'about_title',
-							'label' 		=> __('About Title', 'codexin'),
+							'label' 		=> __('About Title', 'puremedia'),
 							'type'			=> 'text',
-							'description'	=> esc_html__( 'Enter About Us Title Here', 'codexin' ),
+							'description'	=> esc_html__( 'Enter About Us Title Here', 'puremedia' ),
 						),
 						array(
 							'name'			=> 'about_desc',
-							'label' 		=> __('About Description', 'codexin'),
+							'label' 		=> __('About Description', 'puremedia'),
 							'type'			=> 'textarea',
-							'description'	=> esc_html__( 'Enter About Us Description Here', 'codexin' ),
+							'description'	=> esc_html__( 'Enter About Us Description Here', 'puremedia' ),
 						),
 						array(
 							'name'			=> 'position',
-							'label' 		=> __('Select Position', 'codexin'),
+							'label' 		=> __('Select Position', 'puremedia'),
 							'type'			=> 'select',
 							'options'	=> array(
 								'left'	=> 'Left',
 								'right'	=> 'Right',
 							),
 							'value'		=> '1',
-							'description'	=> esc_html__( 'Select About Bix Position Here', 'codexin' ),
+							'description'	=> esc_html__( 'Select About Bix Position Here', 'puremedia' ),
 						),
 						array(
 							'name'			=> 'class',
-							'label' 		=> __(' Extra Class', 'codexin'),
+							'label' 		=> __(' Extra Class', 'puremedia'),
 							'type'			=> 'text'
 						),
 
@@ -201,14 +201,14 @@ function puremedia_shortcode() {
 
 	            // Integrating Team Shortcode with King Composer
 	            'pm_team' => array(
-					'name' => __( 'Team Section', 'codexin' ),
-					'description' => __('Puremedia Team Section', 'codexin'),
+					'name' => __( 'Team Section', 'puremedia' ),
+					'description' => __('Puremedia Team Section', 'puremedia'),
 					'icon' => 'et-gift',
 					'category' => 'Puremedia',
 					'params' => array(
 						array(
 							'name'			=> 'class',
-							'label' 		=> __(' Extra Class', 'codexin'),
+							'label' 		=> __(' Extra Class', 'puremedia'),
 							'type'			=> 'text'
 						),
 
@@ -218,14 +218,14 @@ function puremedia_shortcode() {
 
 	            // Integrating Blog Shortcode with King Composer
 	            'pm_blog' => array(
-					'name' => __( 'Blog Section', 'codexin' ),
-					'description' => __('Puremedia Blog Section', 'codexin'),
+					'name' => __( 'Blog Section', 'puremedia' ),
+					'description' => __('Puremedia Blog Section', 'puremedia'),
 					'icon' => 'et-gift',
 					'category' => 'Puremedia',
 					'params' => array(
 						array(
 							'name'			=> 'class',
-							'label' 		=> __(' Extra Class', 'codexin'),
+							'label' 		=> __(' Extra Class', 'puremedia'),
 							'type'			=> 'text'
 						),
 
@@ -235,22 +235,22 @@ function puremedia_shortcode() {
 
 	            // Integrating Blog Shortcode with King Composer
 	            'pm_contact_form' => array(
-					'name' => __( 'Contact Form', 'codexin' ),
-					'description' => __('Puremedia Contact Form', 'codexin'),
+					'name' => __( 'Contact Form', 'puremedia' ),
+					'description' => __('Puremedia Contact Form', 'puremedia'),
 					'icon' => 'et-gift',
 					'category' => 'Puremedia',
 					'params' => array(
 						array(
 							'name'			=> 'show_form_id',
-							'label' 		=> __('Select Form', 'codexin'),
+							'label' 		=> __('Select Form', 'puremedia'),
 							'type'			=> 'select',
 							'options'	=> $contact_form,
-							'description' => esc_html__( 'Please Select Your Contact Form' ),
+							'description' => __( 'Please Select Your Contact Form', 'puremedia' ),
 						),
 
 						array(
 							'name'			=> 'class',
-							'label' 		=> __(' Extra Class', 'codexin'),
+							'label' 		=> __(' Extra Class', 'puremedia'),
 							'type'			=> 'text'
 						),
 

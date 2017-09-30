@@ -31,7 +31,10 @@ require get_template_directory() . '/lib/widgets.php';
 /**
  * load all Puremedia Custom widgets in dashboard
  */ 
- require get_template_directory() . '/lib/widgets/widget-init.php';
+ require get_template_directory() . '/lib/widgets/puremedia-category-widget.php';
+ require get_template_directory() . '/lib/widgets/puremedia-latest-photo-widget.php';
+ require get_template_directory() . '/lib/widgets/puremedia-tag-widget.php';
+ require get_template_directory() . '/lib/widgets/puremedia-text-widget.php';
 
 
 /**
@@ -52,7 +55,13 @@ require get_template_directory() . '/lib/custompost.php';
 /**
  * Adding Custom Shortcode
  */
-require get_template_directory() . '/lib/codexin-kc-shortcodes/init.php';
+require get_template_directory() . '/lib/codexin-kc-shortcodes/cx_shortcodes.php';
+require get_template_directory() . '/lib/codexin-kc-shortcodes/kc_integrated.php';
+
+/**
+ * Adding Theme Options
+ */
+require get_template_directory() . '/lib/admin-options.php';
 
 
 
@@ -75,7 +84,7 @@ function codexin_setup() {
 	 * If you're building a theme based on codexin, use a find and replace
 	 * to change 'codexin' to the name of your theme in all the template files.
 	 */
-	load_theme_textdomain( 'codexin', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'puremedia', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -124,6 +133,35 @@ function codexin_setup() {
 		'caption',
 	) );
 
+	/*
+		 * Adding custom header support
+		 * to the theme
+		 */		
+		$puremedia_args = array(
+		    'flex-width'    => true,
+		    'width'         => 1900,
+		    'flex-height'   => true,
+		    'height'        => 338,
+		    'default-image' => get_template_directory_uri() . '/images/hero-bg.jpg',
+		);
+		add_theme_support( 'custom-header', $puremedia_args );
+
+		/*
+		 * Adding custom background support
+		 * to the theme
+		 */		
+		$defaults = array(
+			'default-color'          => '',
+			'default-image'          => '',
+			'default-repeat'         => '',
+			'default-position-x'     => '',
+			'default-attachment'     => '',
+			'wp-head-callback'       => '_custom_background_cb',
+			'admin-head-callback'    => '',
+			'admin-preview-callback' => ''
+		);
+		add_theme_support( 'custom-background', $defaults );
+
 	// Providing Shortcode Support on text widget
 	add_filter( 'widget_text', 'do_shortcode' );
 
@@ -149,6 +187,17 @@ add_action( 'admin_menu', 'remove_redux_menu',12 );
 function remove_redux_menu() {
     remove_submenu_page('tools.php','redux-about');
 }
+
+/**
+ * Apply theme's stylesheet to the visual editor.
+ *
+ * @uses add_editor_style() Links a stylesheet to visual editor
+ * @uses get_stylesheet_uri() Returns URI of theme stylesheet
+ */
+	add_action( 'admin_init', 'puremedia_add_editor_styles' );
+	function puremedia_add_editor_styles() {
+		add_editor_style();
+	}
 
 
 // Removing srcset from featured image

@@ -20,9 +20,9 @@ get_header(); ?>
 				<div class="col-xs-12">
 
 					<div id="primary" class="site-main">
-						<h4>The page you are trying to access does not exist.</h4>
-						<h5>Please use the menu above to locate what you are searching for.</h5>
-						<?php get_search_form() ?>
+						<h4><?php _e( 'The page you are trying to access does not exist.', 'puremedia' ); ?></h4>
+						<h5><?php _e( 'Please use the menu above to locate what you are searching for.', 'puremedia'); ?></h5>
+						<?php get_search_form(); ?>
 
 					</div><!-- #primary -->
 				</div> <!-- end of col -->

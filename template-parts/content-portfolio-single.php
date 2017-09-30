@@ -17,17 +17,17 @@
         <div class="entry-meta">
             <ul>
                 <li><?php the_time( ' F d, Y' ); ?></li>
-                <span class="meta-sep">•</span>                             
+                <span class="meta-sep"><?php _e( '.', 'puremedia' ); ?></span>                             
                 <li>
                     <?php 
                     $field_id =  get_the_ID();
                     $term_list = wp_get_post_terms($field_id, 'field');
                     foreach( $term_list as $vterm ) : 
-                        echo '<a rel="skills tag" title="" href="#">'. $vterm->name .', ' . '</a>';
+                        echo '<a rel="skills tag" title="" href="'. $vterm->link .'">'. $vterm->name .', ' . '</a>';
                     endforeach;
                     ?>
                 </li>
-                <span class="meta-sep">•</span>
+                <span class="meta-sep"><?php _e( '.', 'puremedia' ); ?></span>
                 <li><a rel="client" title="" href="#">
                     <?php 
                     $cname = rwmb_meta( 'codexin_portfolio_client', 'type=text' );
@@ -61,8 +61,8 @@
         </div> 
     </div>
     <?php 
-    $prev_link = get_previous_posts_link(__('Previous'));
-    $next_link = get_next_posts_link(__('Next'));
+    $prev_link = get_previous_posts_link(__('Previous', 'puremedia'));
+    $next_link = get_next_posts_link(__('Next', 'puremedia'));
     ?>               
     <div class="pagenav group">
         <?php if( $prev_link ): ?>

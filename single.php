@@ -26,8 +26,8 @@ get_header(); ?>
 						get_template_part( 'template-parts/content', get_post_format() );
 
 						//Get Pageination link for posts
-						$prev_link = get_previous_posts_link(__('Previous'));
-						$next_link = get_next_posts_link(__('Next'));
+						$prev_link = get_previous_posts_link(__('Previous', 'puremedia'));
+						$next_link = get_next_posts_link(__('Next', 'puremedia'));
 
 					 ?>
 					 <div class="pagenav group">

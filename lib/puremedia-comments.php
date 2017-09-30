@@ -72,7 +72,7 @@ function puremedian_comment_function($comment, $args, $depth) { ?>
                <cite><?php comment_author(); ?></cite>
 
                <div class="comment-meta">
-                 <time datetime="2014-07-12T23:05" class="comment-time"><?php printf(__('%1$s @ %2$s'), get_comment_date(),  get_comment_time()); ?></time>
+                 <time datetime="2014-07-12T23:05" class="comment-time"><?php printf(__('%1$s @ %2$s', 'puremedia'), get_comment_date(),  get_comment_time()); ?></time>
                   <span class="sep">/</span>
                   <a href="<?php comment_reply_link( array_merge($args, 
                         array( 'depth' => $depth,

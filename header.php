@@ -32,8 +32,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title><?php bloginfo('name'); ?></title>
-
     <!--[if lt IE 9]>
 
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -174,7 +172,7 @@
 
 				  elseif(is_search()):
 
-				  	printf( esc_html__( 'Search Results for: %s', 'codexin' ), '<span>' . get_search_query() . '</span>' );
+				  	printf( esc_html__( 'Search Results for: %s', 'puremedia' ), '<span>' . get_search_query() . '</span>' );
 
 				  else:
 

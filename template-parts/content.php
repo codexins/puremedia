@@ -18,9 +18,9 @@
             <div class="entry-meta">
                 <ul>
                     <li><?php the_time( 'F d, Y' ); ?></li>
-                    <span class="meta-sep">•</span>                             
+                    <span class="meta-sep"><?php _e( '.', 'puremedia' ); ?></span>                             
                     <li><a rel="category tag" title="" href="<?php the_permalink(); ?>"><?php the_category( ', ' )?></a></li>
-                    <span class="meta-sep">•</span>
+                    <span class="meta-sep"><?php _e( '.', 'puremedia' ); ?></span>
                     <li><a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php echo esc_html( get_the_author() ); ?></a></li>
                 </ul>
             </div> 

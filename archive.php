@@ -14,58 +14,62 @@
 
 get_header(); ?>
 
-	<div id="content" class="main-content-wrapper">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-8 col-md-9">
+	<!-- Content
+ ================================================== -->
+ <section id="content">
+    <div class="row">
+        <div id="main" class="tab-whole eight columns entries">
+             <?php
+				if ( have_posts() ) :
 
-					<div id="primary" class="site-main">
-						<?php
-						if ( have_posts() ) :
-							/* Start the Loop */
-							while ( have_posts() ) : the_post();
+					/* Start the Loop */
+					while ( have_posts() ) : the_post();
 
-								/*
-								 * Include the Post-Format-specific template for the content.
-								 * If you want to override this in a child theme, then include a file
-								 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-								 */
-								get_template_part( 'template-parts/content', get_post_format() );
+						get_template_part( 'template-parts/content', get_post_format() );
 
-							endwhile; ?>
+					endwhile; ?>
+			
+					<?php 
+					$defaults = array(
+						'before'           => '',
+						'after'            => '',
+						'link_before'      => '',
+						'link_after'       => '',
+						'next_or_number'   => '',
+						'separator'        => '',
+						'nextpagelink'     => __( 'Next', 'puremedia' ),
+						'previouspagelink' => __( 'Previous', 'puremedia' ),
+						'pagelink'         => '%',
+						'echo'             => 1
+					);
+						// $prev_link = get_previous_posts_link(__('Previous', 'puremedia'));
+						// $next_link = get_next_posts_link(__('Next', 'puremedia'));
 
-							<?php 
-								$prev_link = get_previous_posts_link(__('&laquo; Newer Posts'));
-								$next_link = get_next_posts_link(__('Older Posts &raquo;'));
+					 ?>
+					 <div class="pagenav group">
+					 <?php if( $prev_link ): ?>
+					 	<span class="prev"><a href="#" rel="prev"><?php wp_link_pages( $defaults ); ?></a></span>
+					 <?php endif; ?>
+					 <?php if( $next_link ): ?>	
+					 	<span class="next"><a href="#" rel="next"><?php wp_link_pages( $defaults ); ?></a></span>
+					 <?php endif; ?>
+					</div> 
 
-							 ?>
-							<div class="posts-nav" class="section">
-								<?php if($prev_link): ?>
-									<div class="nav-next alignleft"><?php echo $prev_link; ?></div>
-								<?php endif; ?>
-								<?php if($next_link): ?>
-									<div class="nav-previous alignright"><?php echo $next_link; ?></div>
-								<?php endif; ?>
-								
-							</div>
+				<?php else :
 
-						<?php else :
+					get_template_part( 'template-parts/content', 'none' );
 
-							get_template_part( 'template-parts/content', 'none' );
+				endif; ?>
+                            
+        </div> <!-- /main -->  
 
-						endif; ?>
+       <div class="tab-whole four columns end" id="secondary">
+           <aside id="sidebar">
+                <?php get_sidebar(); ?>
+            </aside> <!-- /sidebar -->
+        </div> <!-- /secondary -->
 
-					</div><!-- #primary -->
-				</div> <!-- end of col -->
-
-				<div class="col-sm-4 col-md-3">
-					<div id="secondary" class="widget-area" role="complementary">
-						<? get_sidebar() ?>
-					</div><!-- #secondary -->
-				</div> <!-- end of col -->
-
-			</div> <!-- end of row -->
-		</div> <!-- end of container -->
-	</div> <!-- end of #content -->
+    </div> <!-- /row -->      
+</section> <!-- /content -->
 
 <?php get_footer(); ?>

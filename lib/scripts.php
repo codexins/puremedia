@@ -1,13 +1,11 @@
 <?php
 	
 function codexin_scripts () {
-
-	//import icon fonts for fontawesome
-	wp_enqueue_style( 'font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css');
 	
 	//Load the stylesheets
 	wp_enqueue_style( 'base-style', get_template_directory_uri() . '/css/base.css',false,'1.0','all');
 	wp_enqueue_style( 'font-style', get_template_directory_uri() . '/css/fonts.css',false,'1.0','all');
+	wp_enqueue_style( 'font-awesome-style', get_template_directory_uri() . '/css/font-awesome.min.css',false,'1.0','all');
 	wp_enqueue_style( 'sline-icon', get_template_directory_uri() . '/css/simple-line-icons/simple-line-icons.css',false,'1.0','all');
 	//load Main Style
 	wp_enqueue_style( 'main-stylesheet', get_stylesheet_uri() );
