@@ -216,3 +216,9 @@ add_image_size('portfolio-small-thum', 291, 291, true);
 
 
 require get_template_directory() . '/lib/puremedia-comments.php';
+
+
+add_filter( 'admin_post_thumbnail_html', 'slider_image_selected', 10, 2 );
+function slider_image_selected( $content, $post_id ) {
+    return $content . 'Image size is should be Min(WxH) : 1400X700px';
+}

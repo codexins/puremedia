@@ -91,19 +91,11 @@ function codexin_register_meta_boxes( $meta_boxes ) {
 
             array(
                 'name'  => __( 'Project Date', 'puremedia' ),
-                'desc'  => 'Enter project date. Example: 14-Apr-17',
+                'desc'  => 'Select project date',
                 'id'    => $prefix . 'portfolio_date',
-                'type'  => 'text',
+                'type'  => 'date',
                 'clone' => false,
                 'size'  => 95
-            ),
-
-            array(
-                'name'          => __( 'Project Thumbnail', 'puremedia' ),
-                'desc'          => 'Upload Project Images Here ( You may upload multipole images)',
-                'id'            => $prefix . 'portfolio_thumbnail',
-                'type'          => 'image',
-                'clone'         => false,
             ),
 
         )
@@ -157,14 +149,14 @@ function codexin_register_meta_boxes( $meta_boxes ) {
     $meta_boxes[] = array(
         'id'         => 'codexin-home-slider-meta',
         'title'      => __( 'Home Slider Info', 'puremedia' ),
-        'post_types' => array( 'home-slider' ),
+        'post_types' => array( 'puremedia-slider' ),
         'context'    => 'normal',
         'priority'   => 'high',
         'fields' => array(
 
             array(
-                'name'       => __( 'Read More Button', 'puremedia' ),
-                'desc'       => 'Enter Read More Button Text Here',
+                'name'       => __( 'Slider Button Text', 'puremedia' ),
+                'desc'       => 'Enter Slider Button Text Here',
                 'id'         => $prefix . 'button_text',
                 'type'       => 'text',
                 'clone'      => false,
@@ -172,10 +164,34 @@ function codexin_register_meta_boxes( $meta_boxes ) {
             ),
 
             array(
-                'name'       => __( 'Read More Link', 'puremedia' ),
-                'desc'       => 'Enter Read More Button Link Here',
-                'id'         => $prefix . 'read_more_link',
+                'name'       => __( 'Button Link', 'puremedia' ),
+                'desc'       => 'Enter Slider Button Link Here',
+                'id'         => $prefix . 'button_link',
                 'type'       => 'text',
+                'clone'      => false,
+                'size'       => 95
+            ),
+
+            array(
+                'name'       => __( 'Button Link Target', 'puremedia' ),
+                'desc'       => 'Select Button Link Target Here',
+                'id'         => $prefix . 'link_target',
+                'type'       => 'select',
+                'options'    => array(
+                    '_blank' => 'Open New Window',
+                    '_self'  => 'Open Self Window',
+                ),
+                'placeholder' => 'Please Select..',
+                'multiple'   => false,
+                'clone'      => false,
+                'size'       => 95
+            ),
+
+            array(
+                'name'       => __( 'Slider Content', 'puremedia' ),
+                'desc'       => 'Enter Slider Content Here',
+                'id'         => $prefix . 'slider_content',
+                'type'       => 'textarea',
                 'clone'      => false,
                 'size'       => 95
             ),

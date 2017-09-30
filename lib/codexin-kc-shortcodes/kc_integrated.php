@@ -37,10 +37,41 @@ function cx_get_contact_form() {
 
 } //End cx_get_contact_form()..
 
+/**
+ *
+ * Helper function to fetch all post categories
+ *
+ */  
+function cx_get_post_categories() {
+
+	$categories = get_categories( array(
+	    'orderby' => 'name',
+	    'order'   => 'ASC'
+	) );
+
+	$post_cat = array();
+	if ( $categories ) {		
+
+		foreach ( $categories as $value ) {
+			$post_cat[$value->term_id] = ucfirst( $value->name ) . ' (Posts Count: '. $value->category_count .')';
+		}
+
+	} else {
+
+		$post_cat[0] = __( 'No Categories found', 'codexin' );
+
+	}
+
+	return $post_cat;
+
+
+} //End cx_get_post_categories()..
+
 add_action('init', 'puremedia_shortcode', 99 );
  
 function puremedia_shortcode() {
 	$contact_form = cx_get_contact_form();
+	$cx_categories = cx_get_post_categories();
 	if (function_exists('kc_add_map'))
 	{ 
 		kc_add_map(
@@ -114,6 +145,19 @@ function puremedia_shortcode() {
 					'icon' => 'et-gift',
 					'category' => 'Puremedia',
 					'params' => array(
+						array(
+							'name'			=> 'number_of_portfolio',
+							'label' 		=> __('How portfolio Show?', 'puremedia'),
+							'type'			=> 'select',
+							'options'	=> array(
+								'4'	=> '4',
+								'8'	=> '8',
+								'12'	=> '12',
+							),
+							'value'	=> '8',
+							'description'	=> esc_html__( 'Select here, How many portfolio show?', 'puremedia' ),
+						),
+
 						array(
 							'name'			=> 'class',
 							'label' 		=> __(' Extra Class', 'puremedia'),
@@ -223,6 +267,25 @@ function puremedia_shortcode() {
 					'icon' => 'et-gift',
 					'category' => 'Puremedia',
 					'params' => array(
+						array(
+							'name'			=> 'number_of_post',
+							'label' 		=> __('Show number of posts', 'puremedia'),
+							'type'			=> 'select',
+							'options'	=> array(
+								'3'	=> '3',
+								'6'	=> '6',
+							),
+							'value'	=> '6',
+							'description'	=> esc_html__( 'Select here, How many posts are show?', 'puremedia' ),
+						),
+						array(
+	 							'name' 			=> 'exclude',
+	 							'label' 		=> esc_html__( 'Exclude Categories', 'codexin' ),
+	 							'type' 			=> 'multiple',
+	 							'options'		=> $cx_categories,
+	 							'description'	=> esc_html__( 'Choose if You Want to Exclude Any Post Category, Control + Click to Select Multiple Categories to Exclude (No Categories are Excluded by Default)', 'codexin' ),
+	 					),
+	 					
 						array(
 							'name'			=> 'class',
 							'label' 		=> __(' Extra Class', 'puremedia'),

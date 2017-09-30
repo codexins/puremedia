@@ -74,6 +74,7 @@ function pm_section_heading_shortcode(  $atts, $content = null) {
 
 function pm_portfolio_shortcode(  $atts, $content = null) {
 	extract(shortcode_atts(array(
+			'number_of_portfolio'	=> '',
 			'class'	=> '',
 	), $atts));
 
@@ -99,7 +100,7 @@ function pm_portfolio_shortcode(  $atts, $content = null) {
 							'post_type'			=> 'portfolio',
 							'orderby'			=> 'date',
 							'order'				=> 'DESC',
-							'posts_per_page'	=> -1
+							'posts_per_page'	=> $number_of_portfolio
 							);
 						$data = new WP_Query( $args );
 						//Check post
@@ -242,7 +243,7 @@ function pm_about_box_shortcode(  $atts, $content = null) {
 
 function pm_team_shortcode(  $atts, $content = null) {
 	extract(shortcode_atts(array(
-		'class'			=> '',
+		'class'	 => '',
 	), $atts));
 
 	$result = '';
@@ -350,7 +351,9 @@ function pm_team_shortcode(  $atts, $content = null) {
 
 function pm_blog_shortcode(  $atts, $content = null) {
 	extract(shortcode_atts(array(
-		'class'			=> '',
+		'number_of_post' => '',
+		'exclude' 		 => '',
+		'class'			 => '',
 	), $atts));
 
 	$result = '';
@@ -369,13 +372,19 @@ function pm_blog_shortcode(  $atts, $content = null) {
 			<div class="twelve columns">
 				<div id="blog-wrapper" class="bgrid-third s-bgrid-half mob-bgrid-whole group">
 					<?php 
+					$cat_exclude = str_replace(',', ' ', $exclude);
+					$cat_excludes = explode( " ", $cat_exclude );
 					//start query..
 					$args = array(
 						'post_type'				=> 'post',
-						'posts_per_page'		=> -1,
+						'posts_per_page'		=> $number_of_post,
 						'post_status'			=> 'publish',
 						'order'					=> 'DESC',
+						'category__not_in' 		=> $cat_excludes
 					);
+
+					$count_posts = wp_count_posts();
+					$published_posts = $count_posts->publish;
 
 					$data = new WP_Query( $args );
 
@@ -395,6 +404,9 @@ function pm_blog_shortcode(  $atts, $content = null) {
 					wp_reset_postdata();	
 				 ?>
 				</div> <!-- /blog-wrapper -->
+				<?php if( $published_posts > $number_of_post ) : ?>
+					<p class="position-y"><a href="<?php echo esc_url( get_permalink( get_option( 'page_for_posts' ) ) ); ?>" class="button orange">View More</a></p>
+				<?php endif; ?>
 			</div> <!-- /twelve -->
 		</div> <!-- /row -->
 	</div> <!-- /blog -->

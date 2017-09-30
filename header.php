@@ -96,7 +96,7 @@
    				<ul class="slides">
                <?php 
                   $args = array(
-                     'post_type' => 'home-slider',
+                     'post_type' => 'puremedia-slider',
                      'post_per_page' => -1,
                   );
 
@@ -113,11 +113,20 @@
    					<!-- Slide -->
    					<li style=" background: #12151b url(<?php echo esc_attr( $image ); ?>) no-repeat center center fixed;">
    						<div class="flex-caption">
-   							<h1><?php the_excerpt(); ?> </h1>	
+   							<h1>
+                        <?php 
+                        $slider_content = rwmb_meta( 'codexin_slider_content', 'type=textarea' ); 
+                        $content = ( !empty($slider_content) ) ? $slider_content : ''; 
+                        echo esc_html( $content ); ?> 
+                        </h1>	
    							<p>
-                        <?php $rm_url = rwmb_meta( 'codexin_read_more_link', 'type=text' ); 
-                              $getUrl = ( !empty($rm_url) ) ? $rm_url : ''; ?>
-                           <a class="button stroke smoothscroll" href="<?php echo esc_url( $getUrl ); ?>">
+                        <?php 
+                           $rm_url = rwmb_meta( 'codexin_button_link', 'type=text' ); 
+                           $tr_url = rwmb_meta( 'codexin_link_target', 'type=text' ); 
+                           $getUrl = ( !empty($rm_url) ) ? $rm_url : '';
+                           $target = ( !empty($tr_url) ) ? $tr_url : '';
+                        ?>
+                           <a class="button stroke smoothscroll" href="<?php echo esc_url( $getUrl ); ?>" target="<?php echo esc_attr( $target ); ?>">
                            <?php 
                               $btn_text = rwmb_meta( 'codexin_button_text', 'type=text' ); 
                               $text = ( !empty($btn_text) ) ? $btn_text : '';

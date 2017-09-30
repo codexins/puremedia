@@ -42,37 +42,17 @@
     <div class="entry-content">
         <?php
          echo '<p class="lead">' . wp_trim_words( get_the_excerpt(), '30' ). '</p>';
-         the_content(); 
+         the_content();
         ?>
     </div>
 
-    <div class="entry-content-media">
-        <div class="post-thumb">
-            <?php 
-            $portfolio_thumb = rwmb_meta('codexin_portfolio_thumbnail', 'type=image&size=732x549'); 
-            if ( !empty( $portfolio_thumb ) ) :
-                foreach ( $portfolio_thumb as $pthumb ) {
-                    $pimg = $pthumb['url'];
-                    echo '<img src="'. $pimg .'">';
-                }
-
-                else : ?>
-                    <img src="<?php esc_url( the_post_thumbnail_url() ); ?>" >
-            <?php        
-            endif;
-            ?>
-        </div> 
-    </div>
     <?php 
     $prev_link = get_previous_posts_link(__('Previous', 'puremedia'));
     $next_link = get_next_posts_link(__('Next', 'puremedia'));
     ?>               
     <div class="pagenav group">
-        <?php if( $prev_link ): ?>
-            <span class="prev"><a href="#" rel="prev"><?php echo $prev_link; ?></a></span>
-        <?php endif; ?>
-        <?php if( $next_link ): ?>  
-            <span class="next"><a href="#" rel="next"><?php echo $next_link; ?></a></span>
-        <?php endif; ?>
-    </div> 
+    <span class="prev"><a href="<?php echo esc_url( $prev_link ); ?>" rel="prev">Previous</a></span>
+      <span class="next"><a href="<?php echo esc_url( $next_link ); ?>" rel="next">Next</a></span>                  
+  </div>
+
 </article>  

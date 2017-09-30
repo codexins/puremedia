@@ -98,7 +98,7 @@
  	
  	//Create a custom post for Home Slider...
  	$labels = array(
- 				'name'					=> 'Home Slider',
+ 				'name'					=> 'Puremedia Slider',
  				'singular_name'			=> 'Slider',
  				'add_new'				=> 'Add Slider',
  				'all_items'				=> 'All Slider',
@@ -127,7 +127,6 @@
  			// $Supports Array Create Custome From Fiels In WP-Dashbord,Defults are (title,Editor)
  			'supports'				=> array(
  										'title',
- 										'excerpt',
  										'thumbnail'
  									),
  			'taxonomies'			=> array( ''),
@@ -135,7 +134,7 @@
  			'exclude_from_search'	=> false
  		);
 
- 	register_post_type( 'home-slider', $args );
+ 	register_post_type( 'puremedia-slider', $args );
  	
 
  } // End codexin_framework_custompost_type()...
@@ -165,17 +164,17 @@ function codexin_portfolio_taxonomies_type() {
 
 	// add new taxonomy hierarchical
 	$labels = array(
-		'name' => 'Fields',
-		'singular_name' => 'Field',
-		'search_items' => 'Search Fields',
-		'all_items' => 'All Fields',
-		'parent_item' => 'Parent Field',
-		'parent_item_colon' => 'Parent Field:',
-		'edit_item' => 'Edit Field',
-		'update_item' => 'Update Field',
-		'add_new_item' => 'Add New Field',
-		'new_item_name' => 'New Field Name',
-		'menu_name' => 'Fields'
+		'name' => 'Portfolio Type',
+		'singular_name' => 'Portfolio Type',
+		'search_items' => 'Search Portfolio Type',
+		'all_items' => 'All Portfolio Type',
+		'parent_item' => 'Parent Portfolio Type',
+		'parent_item_colon' => 'Parent Portfolio Type:',
+		'edit_item' => 'Edit Portfolio Type',
+		'update_item' => 'Update Portfolio Type',
+		'add_new_item' => 'Add New Portfolio Type',
+		'new_item_name' => 'New Portfolio Type Name',
+		'menu_name' => 'Portfolio Type'
 	);
 
 
@@ -194,21 +193,12 @@ function codexin_portfolio_taxonomies_type() {
 	register_taxonomy('field', array('portfolio'), $args);
 
 	// add new taxonomy NON hierarchical
-
-
-
-	// register_taxonomy('portfolio_tags', 'portfolio', array(
-
-	// 	'label' => 'Portfolio Tags',
-
-	// 	'rewrite' => array('slug' => 'portfolio_tags'),
-
-	// 	'hierarchical' => false
-
-	// ));
+	register_taxonomy('portfolio_tags', 'portfolio', array(
+		'label' => 'Portfolio Tags',
+		'rewrite' => array('slug' => 'portfolio_tags'),
+		'hierarchical' => false
+	));
 
 }
-
-
 
 add_action('init', 'codexin_portfolio_taxonomies_type');
