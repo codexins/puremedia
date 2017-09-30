@@ -29,7 +29,7 @@
         if(has_post_thumbnail()): 
         $image      = wp_prepare_attachment_for_js( get_post_thumbnail_id( $post->ID ) );
         $image_alt  = ( !empty( $image['alt'] ) ) ? 'alt="' . esc_attr( $image['alt'] ) . '"' : 'alt="' .get_the_title() . '"';
-            if( is_single() ): ?>  
+            if( is_single() || is_archive() ) : ?>  
             <div class="entry-content-media">
                 <div class="post-thumb">
                     <img src="<?php the_post_thumbnail_url('puremedia-post-single') ?>" class="img-responsive" <?php printf( '%s', $image_alt ); ?> ">
