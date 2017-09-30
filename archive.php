@@ -30,30 +30,20 @@ get_header(); ?>
 					endwhile; ?>
 			
 					<?php 
-					$defaults = array(
-						'before'           => '',
-						'after'            => '',
-						'link_before'      => '',
-						'link_after'       => '',
-						'next_or_number'   => '',
-						'separator'        => '',
-						'nextpagelink'     => __( 'Next', 'puremedia' ),
-						'previouspagelink' => __( 'Previous', 'puremedia' ),
-						'pagelink'         => '%',
-						'echo'             => 1
-					);
-						// $prev_link = get_previous_posts_link(__('Previous', 'puremedia'));
-						// $next_link = get_next_posts_link(__('Next', 'puremedia'));
+						$prev_link = get_previous_posts_link(__('Previous', 'puremedia'));
+						$next_link = get_next_posts_link(__('Next', 'puremedia'));
 
 					 ?>
 					 <div class="pagenav group">
 					 <?php if( $prev_link ): ?>
-					 	<span class="prev"><a href="#" rel="prev"><?php wp_link_pages( $defaults ); ?></a></span>
+					 	<span class="prev">
+					 	<?php echo $prev_link; ?></span>
 					 <?php endif; ?>
 					 <?php if( $next_link ): ?>	
-					 	<span class="next"><a href="#" rel="next"><?php wp_link_pages( $defaults ); ?></a></span>
+					 	<span class="next">
+					 	<?php echo $next_link; ?></span>
 					 <?php endif; ?>
-					</div> 
+					</div>  
 
 				<?php else :
 
