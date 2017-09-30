@@ -64,14 +64,14 @@ class Puremedia_Latest_Photo_Widget extends WP_Widget {
 		<h5><?php $getTile = (!empty($title)) ? $title : ''; echo $getTile; ?></h5>
 			<ul class="photostream group">
 				<?php 
-					$args = array(
+					$argss = array(
 						'post_type'				=> 'post',
 						'posts_per_page'		=> -1,
 						'post_status'			=> 'publish',
 						'order'					=> 'DESC',
 					);
 
-					$data = new WP_Query( $args );
+					$data = new WP_Query( $argss );
 
 					if( $data->have_posts() ) :
 						while( $data->have_posts() ) : $data->the_post(); ?>

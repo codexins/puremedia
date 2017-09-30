@@ -40,7 +40,10 @@
     </header>
 
     <div class="entry-content">
-        <?php the_content(); ?>
+        <?php
+         echo '<p class="lead">' . wp_trim_words( get_the_excerpt(), '30' ). '</p>';
+         the_content(); 
+        ?>
     </div>
 
     <div class="entry-content-media">

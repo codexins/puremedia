@@ -45,6 +45,7 @@
             if( ! is_single() ) : 
                 the_excerpt(); 
             else : 
+                echo '<p class="lead">' . get_the_excerpt() . '</p>';
                 the_content(); 
             endif; ?>
            </p>
