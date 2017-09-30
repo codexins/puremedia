@@ -243,6 +243,16 @@ function pm_about_box_shortcode(  $atts, $content = null) {
 
 function pm_team_shortcode(  $atts, $content = null) {
 	extract(shortcode_atts(array(
+		'member_name'	 => '',
+		'designation'	 => '',
+		'member_image'	 => '',
+		'member_desc'	 => '',
+		'image_alt'	 => '',
+		'team_fb' => '',
+		'team_tr' => '',
+		'team_gp' => '',
+		'team_ld' => '',
+		'team_sk' => '',
 		'class'	 => '',
 	), $atts));
 
@@ -255,87 +265,46 @@ function pm_team_shortcode(  $atts, $content = null) {
 	$master_class[] = 'pm-team';
 
 	// Retrieving user define classes
-	$classes = array( 'row about-content' );
+	$classes = array( 'mob-bgrid-whole group' );
 	(!empty($class)) ? $classes[] = $class : ''; ?>
-	<div id='team' class="<?php echo esc_attr( implode( ' ', $master_class ) ); ?>">
-		<div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
-			<div class="twelve columns">
-				<div id="team-wrapper" class="bgrid-half mob-bgrid-whole group">
+
+	<div class="<?php echo esc_attr( implode( ' ', $master_class ) ); ?>">
+		<div id="team-wrapper" class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
+			<div class="bgrid member">
+				<div class="member-header">
+					<div class="member-pic">
+						<img src="<?php echo esc_url( $member_image ); ?>" alt="<?php if( !empty( $image_alt ) ): echo esc_html( $image_alt ); else: echo esc_html( $member_name ); endif; ?>"/>                        	                       	
+					</div>
+					<div class="member-name">
+						<h3> <?php echo esc_html( $member_name ); ?> </h3>
+						<span> <?php echo esc_html( $designation ); ?> </span>
+					</div>
+				</div>							
+				<div><?php echo esc_html( $member_desc ); ?></div> 
+				<ul class="member-social">
 					<?php 
-					//start wp query..
-					$args = array(
-						'post_type'			=> 'team',
-						'orderby'			=> 'date',
-						'order'				=> 'DESC',
-						'posts_per_page'	=> -1
-						);
-					$data = new WP_Query( $args );
-					//Check post
-					if( $data->have_posts() ) :
-						//startloop here..
-						while( $data->have_posts() ) : $data->the_post();  
-						global $post;
-						$image      = wp_prepare_attachment_for_js( get_post_thumbnail_id( $post->ID ) );
-						$image_alt  = ( !empty( $image['alt'] ) ) ? 'alt="' . esc_attr( $image['alt'] ) . '"' : 'alt="' .get_the_title() . '"';
-					?>	
-						<div class="bgrid member">
-							<div class="member-header">
-								<div class="member-pic">
-									<img src="<?php esc_url( the_post_thumbnail_url('team-small-thumbnail') ); ?>" alt="<?php echo esc_attr( $image_alt ); ?>"/>                        	                       	
-								</div>
-								<div class="member-name">
-									<h3> <?php the_title(); ?> </h3>
-									<span>
-										<?php 
-											$member_name = rwmb_meta( 'codexin_team_designation', 'type=text' );
-											echo $member_name;
-										?>
-									</span>
-								</div>
-							</div>							
-							<div><?php the_excerpt(); ?></div> 
-								<ul class="member-social">
-								<?php 
-									$team_fb = rwmb_meta( 'codexin_team_fb', 'type=text' );
-									if( ! empty( $team_fb ) ) :
-								 ?>
-									<li><a href="<?php echo esc_url( $team_fb ); ?>"><i class="fa fa-facebook"></i></a></li>
-								<?php endif; //End fb
+					if( ! empty( $team_fb ) ) : ?>
+					<li><a href="<?php echo esc_url( $team_fb ); ?>"><i class="fa fa-facebook"></i></a></li>
+					<?php endif; //End fb
+					if( ! empty( $team_tr ) ) : ?>	
+					<li><a href="<?php echo esc_url( $team_tr ); ?>"><i class="fa fa-twitter"></i></a></li>
+					<?php endif; //End tr
 
-									$team_tr = rwmb_meta( 'codexin_team_tr', 'type=text' );
-									if( ! empty( $team_tr ) ) :
-								 ?>	
-									<li><a href="<?php echo esc_url( $team_tr ); ?>"><i class="fa fa-twitter"></i></a></li>
-								<?php endif; //End tr
+					if( ! empty( $team_gp ) ) : ?>	
+					<li><a href="<?php echo esc_url( $team_gp ); ?>"><i class="fa fa-google-plus"></i></a></li>
+					<?php endif; //End tr
 
-									$team_gp = rwmb_meta( 'codexin_team_gp', 'type=text' );
-									if( ! empty( $team_gp ) ) :
-								 ?>	
-									<li><a href="<?php echo esc_url( $team_gp ); ?>"><i class="fa fa-google-plus"></i></a></li>
-								<?php endif; //End tr
+					if( ! empty( $team_ld ) ) : ?>	
+					<li><a href="<?php echo esc_url( $team_ld ); ?>"><i class="fa fa-linkedin"></i></a></li>
+					<?php endif; //End tr
 
-									$team_ld = rwmb_meta( 'codexin_team_ld', 'type=text' );
-									if( ! empty( $team_ld ) ) :
-								 ?>	
-									<li><a href="<?php echo esc_url( $team_ld ); ?>"><i class="fa fa-linkedin"></i></a></li>
-								<?php endif; //End tr
-
-									$team_sk = rwmb_meta( 'codexin_team_sk', 'type=text' );
-									if( ! empty( $team_sk ) ) :
-								 ?>	
-									<li><a href="<?php echo esc_url( $team_sk ); ?>"><i class="fa fa-skype"></i></a></li>
-								<?php endif; ?>	
-								</ul>
-							</div> <!-- /member -->
-						<?php 
-								endwhile;
-							endif;
-							wp_reset_postdata();
-						 ?>
-					</div> <!-- /twelve -->
-				</div> <!-- /team-wrapper -->
-			</div> <!-- /row -->
-		</div> <!-- /team -->
+					if( ! empty( $team_sk ) ) : ?>	
+					<li><a href="<?php echo esc_url( $team_sk ); ?>"><i class="fa fa-skype"></i></a></li>
+				<?php endif; ?>	
+			</ul>
+		</div> <!-- /member -->
+	</div> <!-- /team-wrapper -->
+</div> <!-- /pm-team -->
 	<?php 
 	$result .= ob_get_clean();
 	return $result;

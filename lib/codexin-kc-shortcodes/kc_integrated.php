@@ -250,13 +250,87 @@ function puremedia_shortcode() {
 					'icon' => 'et-gift',
 					'category' => 'Puremedia',
 					'params' => array(
-						array(
-							'name'			=> 'class',
-							'label' 		=> __(' Extra Class', 'puremedia'),
-							'type'			=> 'text'
-						),
+						'General' => array(
 
-	                ) // End Params array()..
+							array(
+								'name'			=> 'member_name',
+								'label' 		=> __('Team Member Name', 'puremedia'),
+								'type'			=> 'text',
+								'description'	=> esc_html__( 'Enter Team Member Name Here', 'puremedia' ),
+							),
+							array(
+								'name'			=> 'designation',
+								'label' 		=> __('Team Member Designation', 'puremedia'),
+								'type'			=> 'text',
+								'description'	=> esc_html__( 'Enter Team Member Designation Here', 'puremedia' ),
+							),
+							array(
+                                'name'          => 'member_image',
+                                'label'         => esc_html__( 'Upload Team Member Image Here', 'puremedia' ),
+                                'type'          => 'attach_image_url',
+                                'description'   => esc_html__( 'Recommended Image size 100x100 px.', 'puremedia' ),
+                            ),
+                            array(
+                                'name'          => 'image_alt',
+                                'label'         => esc_html__( 'Image Alt Text', 'puremedia' ),
+                                'type'          => 'text',
+                                'description'   => esc_html__( 'Enter Image Alt Text Here', 'puremedia' ),
+                            ),
+
+                            array(
+                                'name'          => 'member_desc',
+                                'label'         => esc_html__( 'Description', 'puremedia' ),
+                                'type'          => 'textarea',
+                                'description'   => esc_html__( 'Enter Team Member Description Here', 'puremedia' ),
+                            ),
+
+							array(
+								'name'			=> 'class',
+								'label' 		=> __(' Extra Class', 'puremedia'),
+								'type'			=> 'text'
+							),
+
+						), //End General
+						
+						'Social Profile' => array(
+							array(
+								'name'			=> 'team_fb',
+								'label' 		=> __('Facebook Url', 'puremedia'),
+								'type'			=> 'text',
+								'description'	=> esc_html__( 'Enter Team Member Facebook URL Here', 'puremedia' ),
+							),
+
+							array(
+								'name'			=> 'team_tr',
+								'label' 		=> __('Twitter Url', 'puremedia'),
+								'type'			=> 'text',
+								'description'	=> esc_html__( 'Enter Team Member Twitter URL Here', 'puremedia' ),
+							),
+
+							array(
+								'name'			=> 'team_gp',
+								'label' 		=> __('Google-Plus Url', 'puremedia'),
+								'type'			=> 'text',
+								'description'	=> esc_html__( 'Enter Team Member Google Plus URL Here', 'puremedia' ),
+							),
+
+							array(
+								'name'			=> 'team_ld',
+								'label' 		=> __('Linkedin Url', 'puremedia'),
+								'type'			=> 'text',
+								'description'	=> esc_html__( 'Enter Team Member Linkedin URL Here', 'puremedia' ),
+							),
+
+							array(
+								'name'			=> 'team_sk',
+								'label' 		=> __('Skype Url', 'puremedia'),
+								'type'			=> 'text',
+								'description'	=> esc_html__( 'Enter Team Member Skype URL Here', 'puremedia' ),
+							),
+
+						), //End Social Profile	
+
+	                ), // End Params array()..
 
 	            ),  // End of elemnt pm_team...
 
@@ -285,7 +359,7 @@ function puremedia_shortcode() {
 	 							'options'		=> $cx_categories,
 	 							'description'	=> esc_html__( 'Choose if You Want to Exclude Any Post Category, Control + Click to Select Multiple Categories to Exclude (No Categories are Excluded by Default)', 'codexin' ),
 	 					),
-	 					
+
 						array(
 							'name'			=> 'class',
 							'label' 		=> __(' Extra Class', 'puremedia'),

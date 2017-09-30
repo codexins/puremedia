@@ -49,10 +49,17 @@
     <?php 
     $prev_link = get_previous_posts_link(__('Previous', 'puremedia'));
     $next_link = get_next_posts_link(__('Next', 'puremedia'));
-    ?>               
+
+    ?>
     <div class="pagenav group">
-    <span class="prev"><a href="<?php echo esc_url( $prev_link ); ?>" rel="prev">Previous</a></span>
-      <span class="next"><a href="<?php echo esc_url( $next_link ); ?>" rel="next">Next</a></span>                  
-  </div>
+    <?php //if( $prev_link ): ?>
+    <span class="prev">
+    <?php echo $prev_link; ?></span>
+    <?php //endif; ?>
+    <?php //if( $next_link ): ?> 
+    <span class="next">
+    <?php echo $next_link; ?></span>
+    <?php //endif; ?>
+    </div>
 
 </article>  
